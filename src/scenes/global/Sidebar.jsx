@@ -16,19 +16,17 @@ import PieChartOutlineOutlinedIcon from '@mui/icons-material/PieChartOutlineOutl
 import TimelineOutlinedIcon from '@mui/icons-material/TimelineOutlined';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
-import { HelpCenterOutlined } from '@mui/icons-material';
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-
   return (
     <MenuItem
       active={selected === title}
-      style={{ color: colors.grey[100] }}
-      onClick={() => {
-        setSelected(title);
+      style={{
+        color: colors.grey[100],
       }}
+      onClick={() => setSelected(title)}
       icon={icon}
     >
       <Typography>{title}</Typography>
@@ -42,6 +40,7 @@ const Sidebar = () => {
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selected, setSelected] = useState('Dashboard');
+
   return (
     <Box
       sx={{
@@ -64,6 +63,7 @@ const Sidebar = () => {
     >
       <ProSidebar collapsed={isCollapsed}>
         <Menu iconShape="square">
+          {/* LOGO AND MENU ICON */}
           <MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
             icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
@@ -107,7 +107,7 @@ const Sidebar = () => {
                   fontWeight="bold"
                   sx={{ m: '10px 0 0 0' }}
                 >
-                  Administrador 🐂
+                  Admnistrador
                 </Typography>
                 <Typography variant="h5" color={colors.greenAccent[500]}>
                   VP Fancy Admin

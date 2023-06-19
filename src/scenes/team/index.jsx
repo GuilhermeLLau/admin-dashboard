@@ -36,8 +36,8 @@ const Team = () => {
       flex: 1,
     },
     {
-      field: 'acessLevel',
-      headerName: 'Access Leval',
+      field: 'accessLevel',
+      headerName: 'Access Level',
       flex: 1,
       renderCell: ({ row: { access } }) => {
         return (
@@ -70,7 +70,7 @@ const Team = () => {
 
   return (
     <Box m="20px">
-      <Header title="TEAM" subtitle="Managing the team members" />
+      <Header title="TEAM" subtitle="Managing the Team Members" />
       <Box
         m="40px 0 0 0"
         height="75vh"
@@ -88,16 +88,19 @@ const Team = () => {
             backgroundColor: colors.blueAccent[700],
             borderBottom: 'none',
           },
-          '& .MuiDataGrid-virtualScrollet': {
+          '& .MuiDataGrid-virtualScroller': {
             backgroundColor: colors.primary[400],
           },
-          '& .MuiDataGrid-virtualScrollet': {
-            backgroundColor: colors.blueAccent[700],
+          '& .MuiDataGrid-footerContainer': {
             borderTop: 'none',
+            backgroundColor: colors.blueAccent[700],
+          },
+          '& .MuiCheckbox-root': {
+            color: `${colors.greenAccent[200]} !important`,
           },
         }}
       >
-        <DataGrid rows={mockDataTeam} columns={columns} />
+        <DataGrid checkboxSelection rows={mockDataTeam} columns={columns} />
       </Box>
     </Box>
   );
